@@ -9,7 +9,8 @@ pub struct ThreadPool {}
 
 impl ThreadPool {
     pub fn new(size: usize) -> Result<ThreadPool, PoolCreationError> {
-        if !size > 0 {
+        if !(size > 0) {
+            println!("Size is err, {}", size);
             return Err(PoolCreationError);
         }
 
