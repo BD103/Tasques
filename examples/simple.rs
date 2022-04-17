@@ -1,6 +1,7 @@
-use tasques::TasqueManager;
+// use tasques::TasqueManager;
 
 fn main() {
+    /*
     let tm = TasqueManager::new();
 
     tm.on_start(|ctx| {
@@ -11,4 +12,5 @@ fn main() {
     tm.on_signal("aaa", |ctx| {
         println!("AAA something happened");
     });
+     */
 }
