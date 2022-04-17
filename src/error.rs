@@ -2,9 +2,9 @@
 
 use std::fmt;
 
-/// Raised when there is an error creating a [ThreadPool](crate::lowlevel::ThreadPool).
+/// Raised when there is an error creating a [crate::lowlevel::ThreadPool].
 ///
-/// This will only be raised when calling [ThreadPool::new](crate::lowlevel::ThreadPool::new).
+/// This will only be raised when calling [crate::lowlevel::ThreadPool::new].
 ///
 /// ```should_panic
 /// use tasques::lowlevel::ThreadPool;
