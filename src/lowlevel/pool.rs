@@ -1,14 +1,19 @@
 //! Low-level thread pool implementation.
 
 use crate::error::PoolCreationError;
-use crate::lowlevel::{Worker, Job};
+use crate::lowlevel::worker::{Job, Worker};
 
-use std::sync::{Arc, Mutex, mpsc};
+use std::sync::{mpsc, Arc, Mutex};
+
+pub(crate) enum Message {
+    NewJob(Job),
+    Terminate,
+}
 
 /// Implementation of a thread pool.
 pub struct ThreadPool {
     workers: Vec<Worker>,
-    sender: mpsc::Sender<Job>
+    sender: mpsc::Sender<Message>,
 }
 
 impl ThreadPool {
@@ -35,6 +40,22 @@ impl ThreadPool {
         F: FnOnce() + Send + 'static,
     {
         let job = Box::new(func);
-        self.sender.send(job).unwrap();
+        self.sender.send(Message::NewJob(job)).unwrap();
+    }
+}
+
+impl Drop for ThreadPool {
+    fn drop(&mut self) {
+        // Tell all threads to finish
+        for _ in &self.workers {
+            self.sender.send(Message::Terminate).unwrap();
+        }
+
+        // Join all workers into main thread
+        for worker in &mut self.workers {
+            if let Some(thread) = worker.thread.take() {
+                thread.join().unwrap();
+            }
+        }
     }
 }
