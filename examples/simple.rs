@@ -1,4 +1,4 @@
-// use tasques::TasqueManager;
+use tasques::{Tasque, TasqueManager};
 
 fn main() {
     /*
@@ -13,4 +13,11 @@ fn main() {
         println!("AAA something happened");
     });
      */
+
+    let mut tm = TasqueManager::new();
+
+    tm.register(Tasque::on_start(|| println!("Hello, world!")));
+    tm.register(Tasque::requires("oobleck", || println!("hi")));
+
+    tm.run();
 }
