@@ -1,7 +1,7 @@
 //! Low-level thread pool implementation.
 
-use crate::error::PoolCreationError;
-use crate::lowlevel::worker::{Job, Worker};
+use crate::errors::PoolCreationError;
+use crate::worker::{Job, Worker};
 
 use std::sync::{mpsc, Arc, Mutex};
 
@@ -40,7 +40,7 @@ impl ThreadPool {
     /// (You need to have at least 1 thread!)
     pub fn new(size: usize) -> Result<ThreadPool, PoolCreationError> {
         // Need at least 1 thread
-        if !(size > 0) {
+        if size <= 0 {
             println!("Size is err, {}", size);
             return Err(PoolCreationError);
         }

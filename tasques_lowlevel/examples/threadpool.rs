@@ -20,7 +20,7 @@
 //!
 //! Notice how only 4 functions complete in the same second.
 
-use tasques::lowlevel::ThreadPool;
+use tasques_lowlevel::ThreadPool;
 
 use std::thread;
 use std::time::{Duration, Instant};

@@ -1,6 +1,6 @@
 //! Provides the [Worker] struct.
 
-use crate::lowlevel::pool::Message;
+use crate::pool::Message;
 
 use std::sync::{mpsc, Arc, Mutex};
 use std::thread;

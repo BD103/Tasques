@@ -2,6 +2,6 @@
 
 mod pool;
 mod worker;
+mod errors;
 
 pub use pool::ThreadPool;
-pub(crate) use worker::Job;

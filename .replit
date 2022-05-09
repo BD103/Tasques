@@ -1,5 +1,4 @@
-run = "cargo build"
-#run = "python -m http.server -d target/doc"
+run = "cargo run --example thing"
 language = "nix"
 hidden = [
     ".cargo",

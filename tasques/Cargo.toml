@@ -1,0 +1,8 @@
+[package]
+name = "tasques"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tasques_lowlevel = { path = "../tasques_lowlevel" }
+parking_lot = "0.12.0"
