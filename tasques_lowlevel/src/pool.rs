@@ -17,8 +17,7 @@ pub(crate) enum Message {
 /// It prevents DOS attacks by having a set number of threads (instead of creating a new one per-task).
 ///
 /// ```
-/// use tasques::lowlevel::ThreadPool;
-/// use std::thread;
+/// use tasques_lowlevel::ThreadPool;
 ///
 /// let pool = ThreadPool::new(4);
 ///

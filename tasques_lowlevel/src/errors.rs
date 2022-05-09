@@ -2,12 +2,12 @@
 
 use std::fmt;
 
-/// Raised when there is an error creating a [crate::lowlevel::ThreadPool].
+/// Raised when there is an error creating a [crate::ThreadPool].
 ///
-/// This will only be raised when calling [crate::lowlevel::ThreadPool::new].
+/// This will only be raised when calling [crate::ThreadPool::new].
 ///
 /// ```should_panic
-/// use tasques::lowlevel::ThreadPool;
+/// use tasques_lowlevel::ThreadPool;
 ///
 /// // Panics with PoolCreationError
 /// let pool = ThreadPool::new(0).unwrap();

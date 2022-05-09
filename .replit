@@ -1,4 +1,4 @@
-run = "cargo run --example thing"
+run = "cargo build"
 language = "nix"
 hidden = [
     ".cargo",

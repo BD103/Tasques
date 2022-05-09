@@ -2,6 +2,7 @@
 
 mod pool;
 mod worker;
-mod errors;
+
+pub mod errors;
 
 pub use pool::ThreadPool;
